@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["FGGZFDP2RH.naoufel.DailyNoor"],
+        "components": [
+          { "/": "/quote/*", "comment": "Shared rappel deep link" },
+          { "/": "/onelink/*", "comment": "AppsFlyer OneLink redirect target" }
+        ]
+      }
+    ]
+  }
+}
