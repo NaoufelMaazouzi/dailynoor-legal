@@ -48,12 +48,39 @@ quotidiens d'inspiration.
   identifiable n'est envoyée (configuration `sendDefaultPii = false`
   + filtre `beforeSend` qui nettoie les emails dans les breadcrumbs).
 
-### 2.4 Données que nous ne collectons PAS
+### 2.4 Mesure d'audience publicitaire (AppsFlyer)
+
+DailyNoor fait de la publicité sur **TikTok**, **Meta** (Facebook,
+Instagram) et **Apple Search Ads**. Pour comprendre quelles
+campagnes te font découvrir l'application et adapter notre budget
+sans gaspiller, nous utilisons **AppsFlyer**, un service
+d'attribution mobile.
+
+**Ce qui est collecté** :
+- Un identifiant publicitaire d'appareil (IDFA) — uniquement si tu
+  acceptes l'invite Apple « Permettre à DailyNoor de suivre... »
+  qui apparaît à la fin de ton onboarding. Si tu refuses, aucun
+  IDFA n'est collecté.
+- Le canal d'acquisition (organic / TikTok / Meta / ASA…), la
+  campagne, le set d'annonces et l'annonce qui t'ont amené à
+  installer l'app.
+- Les événements clés (install, fin d'onboarding, essai démarré,
+  abonnement) — envoyés à chaque réseau pub pour optimiser leurs
+  algorithmes.
+
+**Ce qui n'est jamais partagé** : ton prénom, ton email, le
+contenu de tes réponses d'onboarding, tes rappels favoris.
+
+**Tes droits ATT** : tu peux à tout moment révoquer l'autorisation
+de suivi dans **Réglages iOS → DailyNoor → Autoriser le suivi**.
+Aucun re-prompt ne te sera fait.
+
+### 2.5 Données que nous ne collectons PAS
 
 - Pas de géolocalisation.
 - Pas de carnet d'adresses, photos, microphone, caméra.
-- Pas de tracking publicitaire (`NSPrivacyTracking = false`).
-- Pas d'IDFA, pas de cookies tiers.
+- Pas de cookies tiers (l'app n'est pas un site web).
+- Pas de revente de données à des data brokers.
 
 ## 3. Comment nous utilisons tes données
 
@@ -78,6 +105,12 @@ qualité de sous-traitants au sens du RGPD :
   plantages.
 - **Apple** (Apple Inc.) : Sign In with Apple, traitement des
   paiements via l'App Store.
+- **AppsFlyer** (AppsFlyer Ltd., Israël — clauses contractuelles
+  types) : mesure d'audience publicitaire et attribution
+  d'installation.
+- **TikTok**, **Meta**, **Apple Search Ads** : réseaux
+  publicitaires qui reçoivent, via AppsFlyer, un signal de
+  conversion (sans PII) pour optimiser nos campagnes.
 
 Nous ne **vendons jamais** tes données à des tiers.
 
