@@ -46,7 +46,7 @@ quotidiens d'inspiration.
 - **Rapports de plantage et de performance** (Sentry) : stack traces,
   modèle d'appareil, version iOS. Aucune information personnelle
   identifiable n'est envoyée (configuration `sendDefaultPii = false`
-  + filtre `beforeSend` qui nettoie les emails dans les breadcrumbs).
+  et filtre `beforeSend` qui nettoie les emails dans les breadcrumbs).
 
 ### 2.4 Mesure d'audience publicitaire (AppsFlyer)
 

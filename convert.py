@@ -1,0 +1,181 @@
+#!/usr/bin/env python3
+"""One-shot converter: turn the source markdown files into styled
+HTML pages served under clean `/Privacy/` and `/CGU/` URLs.
+
+The repo lives behind a `.nojekyll` flag (so the Universal Links
+`apple-app-site-association` file is served untouched), which means
+GitHub Pages doesn't render markdown for us. We pre-render here
+instead. Each markdown becomes `<slug>/index.html` so the URLs the
+iOS app already uses (`/Privacy`, `/CGU`) resolve directly.
+"""
+
+from pathlib import Path
+import markdown
+
+REPO = Path(__file__).parent
+
+# Brand-matched chrome: cream background, warm dark-brown text,
+# terracotta accent — same palette as `OnboardingStyle` in the iOS
+# app so the in-app browser hand-off feels seamless. System font
+# stack (with Inter first) so Safari falls through to SF Pro without
+# pulling a webfont.
+TEMPLATE = """<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#F4F1EB">
+  <title>{title} — DailyNoor</title>
+  <style>
+    :root {{
+      --bg: #F4F1EB;
+      --surface: #F9F7F3;
+      --fg: #3A2F26;
+      --muted: #7A6F60;
+      --accent: #D97746;
+      --rule: rgba(58, 47, 38, 0.12);
+    }}
+    *, *::before, *::after {{ box-sizing: border-box; }}
+    html, body {{
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+    }}
+    main {{
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 32px 22px calc(48px + env(safe-area-inset-bottom));
+    }}
+    nav.back {{
+      font-size: 14px;
+      margin-bottom: 24px;
+    }}
+    nav.back a {{
+      color: var(--muted);
+      text-decoration: none;
+    }}
+    nav.back a:hover {{ color: var(--fg); }}
+    h1 {{
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 0 0 8px;
+    }}
+    h2 {{
+      font-size: 20px;
+      font-weight: 700;
+      margin: 36px 0 8px;
+      letter-spacing: -0.005em;
+    }}
+    h3 {{
+      font-size: 17px;
+      font-weight: 600;
+      margin: 24px 0 4px;
+    }}
+    p {{ margin: 12px 0; }}
+    ul, ol {{
+      padding-left: 22px;
+      margin: 12px 0;
+    }}
+    li {{ margin: 6px 0; }}
+    li > p {{ margin: 4px 0; }}
+    strong {{ color: var(--fg); font-weight: 600; }}
+    em {{ font-style: italic; }}
+    a {{
+      color: var(--accent);
+      text-decoration: underline;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }}
+    code {{
+      background: var(--surface);
+      padding: 1px 6px;
+      border-radius: 4px;
+      font-size: 0.92em;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }}
+    hr {{
+      border: 0;
+      border-top: 1px solid var(--rule);
+      margin: 32px 0;
+    }}
+    blockquote {{
+      border-left: 3px solid var(--accent);
+      margin: 16px 0;
+      padding: 4px 16px;
+      color: var(--muted);
+      background: var(--surface);
+      border-radius: 0 8px 8px 0;
+    }}
+    table {{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 15px;
+      background: var(--surface);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--rule);
+    }}
+    th, td {{
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }}
+    th {{
+      font-weight: 600;
+      background: rgba(58, 47, 38, 0.04);
+    }}
+    tr:last-child td {{ border-bottom: 0; }}
+    footer {{
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 13px;
+    }}
+    footer a {{ color: var(--muted); }}
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="back"><a href="../">← DailyNoor</a></nav>
+    {body}
+    <footer>
+      © DailyNoor — Naoufel Maazouzi
+    </footer>
+  </main>
+</body>
+</html>
+"""
+
+# Same template, no back link — used for the root index.
+ROOT_TEMPLATE = TEMPLATE.replace('<nav class="back"><a href="../">← DailyNoor</a></nav>\n    ', '')
+
+MD_EXTENSIONS = ["extra", "sane_lists", "tables", "smarty"]
+
+
+def render(md_path: Path, out_path: Path, title: str, *, root: bool = False) -> None:
+    source = md_path.read_text(encoding="utf-8")
+    # Strip the leading H1 from the markdown body so we can render
+    # it ourselves as the page <h1> outside of `<article>` siblings —
+    # the template already has the visual hierarchy baked in.
+    html_body = markdown.markdown(source, extensions=MD_EXTENSIONS, output_format="html5")
+    template = ROOT_TEMPLATE if root else TEMPLATE
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(template.format(title=title, body=html_body), encoding="utf-8")
+    print(f"wrote {out_path.relative_to(REPO)}")
+
+
+render(REPO / "Privacy.md", REPO / "Privacy" / "index.html", "Politique de confidentialité")
+render(REPO / "CGU.md", REPO / "CGU" / "index.html", "Conditions générales d'utilisation")
+render(REPO / "index.md", REPO / "index.html", "Pages légales", root=True)
