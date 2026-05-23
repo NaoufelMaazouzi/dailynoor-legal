@@ -178,4 +178,5 @@ def render(md_path: Path, out_path: Path, title: str, *, root: bool = False) -> 
 
 render(REPO / "Privacy.md", REPO / "Privacy" / "index.html", "Politique de confidentialité")
 render(REPO / "CGU.md", REPO / "CGU" / "index.html", "Conditions générales d'utilisation")
+render(REPO / "support.md", REPO / "support" / "index.html", "Support")
 render(REPO / "index.md", REPO / "index.html", "Pages légales", root=True)
