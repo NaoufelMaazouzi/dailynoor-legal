@@ -1,6 +1,6 @@
 # Conditions Générales d'Utilisation — DailyNoor
 
-**Dernière mise à jour : 22 mai 2026**
+**Dernière mise à jour : 21 octobre 2026**
 
 ## 1. Objet
 
@@ -18,8 +18,10 @@ DailyNoor est une application proposant des rappels d'inspiration
 quotidiens, organisés par thèmes, accessibles dans un feed vertical
 et via un widget iOS / une complication Apple Watch.
 
-L'Application propose une version gratuite et une version Premium
-(« DailyNoor Premium ») par abonnement.
+L'Application est accessible par abonnement (« DailyNoor Premium »).
+Son téléchargement est gratuit ; l'accès aux rappels, au widget, à
+la complication Apple Watch et à l'ensemble de ses fonctionnalités
+nécessite un abonnement actif.
 
 ## 3. Compte utilisateur
 
@@ -38,24 +40,26 @@ si tu désinstalles l'app ou changes d'appareil.
 ### 3.3 Suppression du compte
 
 Tu peux supprimer ton compte à tout moment via « Mon compte →
-Supprimer mon compte ». Toutes les données associées seront
-effacées dans un délai de 30 jours.
+Supprimer mon compte », y compris sans abonnement actif : l'écran
+d'abonnement donne accès à « Mon compte ». Toutes les données
+associées seront effacées dans un délai de 30 jours.
 
 ## 4. Abonnement Premium
 
 ### 4.1 Offre
 
-L'abonnement DailyNoor Premium débloque :
+L'abonnement DailyNoor Premium donne accès à l'ensemble de
+l'Application, notamment :
 
-- L'accès complet à tous les thèmes visuels et icônes
-  d'application.
-- L'accès complet aux collections premium de rappels.
-- La personnalisation avancée du widget (fréquence, source).
-- La personnalisation avancée des notifications (jusqu'à 30
-  rappels/jour).
+- Les rappels personnalisés du feed et leurs collections.
+- Le programme d'objectifs quotidiens.
+- Les widgets (écran d'accueil et écran verrouillé) et la
+  complication Apple Watch.
+- Les notifications de rappels (jusqu'à 30 par jour).
+- Tous les thèmes visuels et icônes d'application.
 
-Les prix, durées et conditions d'essai sont affichés sur l'écran
-de paywall avant tout engagement.
+Les formules, prix et durées sont affichés sur l'écran
+d'abonnement avant tout engagement.
 
 ### 4.2 Modalités de paiement
 
@@ -65,14 +69,12 @@ de paywall avant tout engagement.
   en cours, l'abonnement se renouvelle automatiquement pour la
   même durée et au même tarif.
 
-### 4.3 Période d'essai gratuit
+### 4.3 Essais gratuits
 
-Certaines offres incluent un essai gratuit (typiquement 7 ou 14
-jours). À l'issue de la période d'essai, l'abonnement payant
+L'Application ne propose plus d'essai gratuit depuis le 21 octobre
+2026. Les essais gratuits commencés avant cette date se
+poursuivent jusqu'à leur terme ; à leur issue, l'abonnement payant
 démarre automatiquement, sauf annulation préalable.
-
-Une notification est envoyée 48 heures avant la fin de la période
-d'essai pour te le rappeler.
 
 ### 4.4 Gestion et annulation
 
@@ -86,8 +88,8 @@ peut être traité directement par DailyNoor. Les demandes doivent
 ### 4.5 Restauration des achats
 
 Si tu changes d'appareil ou réinstalles l'app, tu peux restaurer
-ton abonnement via le bouton « Restaurer mes achats » dans le
-paywall, à condition d'utiliser le même Apple ID.
+ton abonnement via « Restaurer mes achats » (écran d'accueil ou
+écran d'abonnement), à condition d'utiliser le même Apple ID.
 
 ## 5. Propriété intellectuelle
 
@@ -124,8 +126,8 @@ En utilisant l'Application, tu t'engages à :
   contraires à l'ordre public.
 - Ne pas chercher à compromettre la sécurité de l'Application ou
   de ses serveurs.
-- Ne pas créer de comptes multiples dans le but de contourner
-  les limites de l'offre gratuite ou des essais.
+- Ne pas chercher à contourner l'abonnement ou ses conditions
+  (comptes multiples, modification de l'Application, etc.).
 
 ## 7. Données personnelles
 

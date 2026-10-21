@@ -1,6 +1,6 @@
 # Politique de confidentialité — DailyNoor
 
-**Dernière mise à jour : 22 mai 2026**
+**Dernière mise à jour : 21 octobre 2026**
 
 ## 1. Qui sommes-nous ?
 
@@ -32,8 +32,8 @@ quotidiens d'inspiration.
 - **Préférences d'affichage** : thème visuel, icône d'application,
   langue, fréquence des rappels du widget, paramètres de
   notifications.
-- **Statut d'abonnement** : si tu es Premium ou non, date
-  d'expiration de l'essai.
+- **Statut d'abonnement** : si tu es Premium ou non, date de fin
+  de la période en cours, renouvellement automatique activé ou non.
 
 ### 2.3 Données techniques (anonymisées)
 
@@ -64,9 +64,8 @@ d'attribution mobile.
 - Le canal d'acquisition (organic / TikTok / Meta / ASA…), la
   campagne, le set d'annonces et l'annonce qui t'ont amené à
   installer l'app.
-- Les événements clés (install, fin d'onboarding, essai démarré,
-  abonnement) — envoyés à chaque réseau pub pour optimiser leurs
-  algorithmes.
+- Les événements clés (install, fin d'onboarding, abonnement) —
+  envoyés à chaque réseau pub pour optimiser leurs algorithmes.
 
 **Ce qui n'est jamais partagé** : ton prénom, ton email, le
 contenu de tes réponses d'onboarding, tes rappels favoris.
